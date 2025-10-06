@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://dxnbudmriucxc"]
+[gd_scene load_steps=13 format=4 uid="uid://dxnbudmriucxc"]
 
 [ext_resource type="PackedScene" uid="uid://bmnlsmp3disu7" path="res://scene/player.tscn" id="1_pu4bb"]
 [ext_resource type="Texture2D" uid="uid://x0q1jvfryxvo" path="res://Assets/tilesets/Building.png" id="2_vjs2m"]
 [ext_resource type="PackedScene" uid="uid://de1smrsplc462" path="res://scene/killzone.tscn" id="3_vjs2m"]
 [ext_resource type="Texture2D" uid="uid://crxgi5xopkkjj" path="res://Assets/tilesets/BigTileset1.png" id="4_oj781"]
 [ext_resource type="Texture2D" uid="uid://barrcp5byxt41" path="res://Assets/tilesets/2by2_img1.png" id="5_m3dbj"]
-[ext_resource type="PackedScene" uid="uid://da81sytlbnv0u" path="res://scene/lift.tscn" id="6_hjkxd"]
+[ext_resource type="PackedScene" uid="uid://ba0lwg7a8j6sj" path="res://scene/Lift.tscn" id="6_hjkxd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("2_vjs2m")
@@ -121,51 +121,14 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_oj781")
 sources/2 = SubResource("TileSetAtlasSource_hjkxd")
 
-[sub_resource type="Animation" id="Animation_hjkxd"]
-resource_name = "new_animation"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.9666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2129, 21), Vector2(2129, -235)]
-}
-
-[sub_resource type="Animation" id="Animation_qt7cu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2129, 21)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vr3a4"]
-_data = {
-&"RESET": SubResource("Animation_qt7cu"),
-&"new_animation": SubResource("Animation_hjkxd")
-}
-
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_pu4bb")]
-position = Vector2(-1718, -89)
+position = Vector2(1606, -76)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, 43)
+scale = Vector2(1, 0.068)
 limit_bottom = 300
 position_smoothing_enabled = true
 
@@ -188,10 +151,4 @@ tile_map_data = PackedByteArray("AAC9//7/AAAAAAkAAAD9/97/AAAMAAEAAAC9/87/AAAMAAE
 tile_set = SubResource("TileSet_m3dbj")
 
 [node name="Node2D" parent="." instance=ExtResource("6_hjkxd")]
-position = Vector2(2129, 21)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_vr3a4")
-}
-autoplay = "new_animation"
+position = Vector2(2150, -182)

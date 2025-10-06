@@ -1,28 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://da81sytlbnv0u"]
+[gd_scene load_steps=7 format=3 uid="uid://ba0lwg7a8j6sj"]
 
-[ext_resource type="Texture2D" uid="uid://crxgi5xopkkjj" path="res://Assets/tilesets/BigTileset1.png" id="1_w2cl2"]
+[ext_resource type="Texture2D" uid="uid://crxgi5xopkkjj" path="res://Assets/tilesets/BigTileset1.png" id="1_561gk"]
+[ext_resource type="Script" uid="uid://8a5awbd55ua2" path="res://scene/lift.gd" id="1_xvrmp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2cl2"]
-size = Vector2(163, 19)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_561gk"]
+size = Vector2(110, 13)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgbqn"]
-size = Vector2(18.5, 225)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvrmp"]
+size = Vector2(14, 143)
 
-[node name="Node2D" type="AnimatableBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gki83"]
+size = Vector2(7, 138.5)
 
-[node name="LiftBody" type="Node" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rcme"]
+size = Vector2(8, 139)
 
-[node name="lift_body" type="Sprite2D" parent="."]
-position = Vector2(1.0000038, -126.99999)
-scale = Vector2(1.5090909, 1.5090909)
-texture = ExtResource("1_w2cl2")
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xvrmp")
+
+[node name="LiftDoorSprite" type="Sprite2D" parent="."]
+position = Vector2(-51, 4.0000005)
+scale = Vector2(1, 0.90322584)
+texture = ExtResource("1_561gk")
 region_enabled = true
-region_rect = Rect2(384, 346, 110, 166)
+region_rect = Rect2(376, 356, 8, 155)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -11.5)
-shape = SubResource("RectangleShape2D_w2cl2")
+[node name="LiftBody" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(71.25, -122.5)
-shape = SubResource("RectangleShape2D_wgbqn")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiftBody"]
+position = Vector2(0, 75.5)
+shape = SubResource("RectangleShape2D_561gk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LiftBody"]
+position = Vector2(48, -2.5)
+shape = SubResource("RectangleShape2D_xvrmp")
+
+[node name="LiftBodySprite" type="Sprite2D" parent="LiftBody"]
+texture = ExtResource("1_561gk")
+region_enabled = true
+region_rect = Rect2(384, 348, 110, 164)
+
+[node name="DoorCollision" type="Area2D" parent="."]
+position = Vector2(-52, -65.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorCollision"]
+position = Vector2(-0.5, 69.25)
+shape = SubResource("RectangleShape2D_gki83")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-52, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-4.000004, 0.9999924)
+scale = Vector2(1, 0.8967742)
+texture = ExtResource("1_561gk")
+centered = false
+region_enabled = true
+region_rect = Rect2(376, 356, 8, 155)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 70)
+shape = SubResource("RectangleShape2D_5rcme")
