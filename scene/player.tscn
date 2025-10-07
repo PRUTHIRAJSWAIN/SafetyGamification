@@ -86,10 +86,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd465"]
-size = Vector2(16, 113)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hjaqi"]
+height = 111.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 16
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -100,4 +101,4 @@ animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -56.5)
-shape = SubResource("RectangleShape2D_dd465")
+shape = SubResource("CapsuleShape2D_hjaqi")

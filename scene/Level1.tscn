@@ -129,6 +129,7 @@ position = Vector2(1606, -76)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0, 43)
 scale = Vector2(1, 0.068)
+zoom = Vector2(1.5, 1.5)
 limit_bottom = 300
 position_smoothing_enabled = true
 
@@ -151,5 +152,5 @@ tile_map_data = PackedByteArray("AAC9//7/AAAAAAkAAAD9/97/AAAMAAEAAAC9/87/AAAMAAE
 tile_set = SubResource("TileSet_m3dbj")
 
 [node name="Node2D" parent="." instance=ExtResource("6_hjkxd")]
-position = Vector2(2131, -109)
+position = Vector2(2131, -103)
 scale = Vector2(1.5, 1.5)
