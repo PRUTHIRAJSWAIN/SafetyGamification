@@ -20,11 +20,6 @@ script = ExtResource("1_xvrmp")
 
 [node name="LiftBody" type="StaticBody2D" parent="."]
 
-[node name="LiftBodySprite" type="Sprite2D" parent="LiftBody"]
-texture = ExtResource("1_561gk")
-region_enabled = true
-region_rect = Rect2(384, 348, 110, 164)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LiftBody"]
 position = Vector2(0, 75.5)
 shape = SubResource("RectangleShape2D_561gk")
@@ -32,6 +27,11 @@ shape = SubResource("RectangleShape2D_561gk")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LiftBody"]
 position = Vector2(48, -2.5)
 shape = SubResource("RectangleShape2D_xvrmp")
+
+[node name="LiftBodySprite" type="Sprite2D" parent="LiftBody"]
+texture = ExtResource("1_561gk")
+region_enabled = true
+region_rect = Rect2(384, 348, 110, 164)
 
 [node name="DoorArea" type="Area2D" parent="."]
 position = Vector2(-52, -65.5)
