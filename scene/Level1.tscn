@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://de1smrsplc462" path="res://scene/killzone.tscn" id="3_vjs2m"]
 [ext_resource type="Texture2D" uid="uid://crxgi5xopkkjj" path="res://Assets/tilesets/BigTileset1.png" id="4_oj781"]
 [ext_resource type="Texture2D" uid="uid://barrcp5byxt41" path="res://Assets/tilesets/2by2_img1.png" id="5_m3dbj"]
-[ext_resource type="PackedScene" uid="uid://ba0lwg7a8j6sj" path="res://scene/lift.tscn" id="6_hjkxd"]
+[ext_resource type="PackedScene" path="res://scene/Lift.tscn" id="6_hjkxd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("2_vjs2m")
@@ -151,5 +151,5 @@ tile_map_data = PackedByteArray("AAC9//7/AAAAAAkAAAD9/97/AAAMAAEAAAC9/87/AAAMAAE
 tile_set = SubResource("TileSet_m3dbj")
 
 [node name="Node2D" parent="." instance=ExtResource("6_hjkxd")]
-position = Vector2(2131, -103)
-scale = Vector2(1.5, 1.5)
+position = Vector2(2126, 0)
+scale = Vector2(1.39, 1.39)
