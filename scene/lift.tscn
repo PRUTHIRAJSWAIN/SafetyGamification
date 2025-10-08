@@ -74,25 +74,33 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "1"
 
-[node name="ground2" type="Button" parent="LiftButtons/GridContainer"]
+[node name="first_floor" type="Button" parent="LiftButtons/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "2
 "
 
-[node name="ground3" type="Button" parent="LiftButtons/GridContainer"]
+[node name="second_floor" type="Button" parent="LiftButtons/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "3
 "
 
-[node name="ground4" type="Button" parent="LiftButtons/GridContainer"]
+[node name="third_floor" type="Button" parent="LiftButtons/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "4"
+
+[node name="Open" type="Button" parent="LiftButtons/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "<>"
 
 [connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="body_exited" from="DoorArea" to="." method="_on_door_area_body_exited"]
 [connection signal="timeout" from="DoorActionTimer" to="." method="_on_door_action_timer_timeout"]
 [connection signal="pressed" from="LiftButtons/GridContainer/ground" to="." method="_on_ground_pressed"]
-[connection signal="pressed" from="LiftButtons/GridContainer/ground2" to="." method="_on_ground_2_pressed"]
+[connection signal="pressed" from="LiftButtons/GridContainer/first_floor" to="." method="_on_first_floor_pressed"]
+[connection signal="pressed" from="LiftButtons/GridContainer/second_floor" to="." method="_on_second_floor_pressed"]
+[connection signal="pressed" from="LiftButtons/GridContainer/third_floor" to="." method="_on_third_floor_pressed"]
+[connection signal="pressed" from="LiftButtons/GridContainer/Open" to="." method="_on_open_pressed"]
