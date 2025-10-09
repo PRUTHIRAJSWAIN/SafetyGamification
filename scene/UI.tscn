@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy5v84ra5slw0"]
+
+[sub_resource type="Gradient" id="Gradient_i0yuo"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c73ev"]
+gradient = SubResource("Gradient_i0yuo")
+
+[sub_resource type="Gradient" id="Gradient_qe48f"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cbomc"]
+gradient = SubResource("Gradient_qe48f")
+
+[sub_resource type="Gradient" id="Gradient_wbuqp"]
+offsets = PackedFloat32Array(0, 0.007662835, 1)
+colors = PackedColorArray(0.93333334, 0, 0, 1, 0.043137256, 0.9098039, 0.043137256, 1, 1, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7wp6k"]
+gradient = SubResource("Gradient_wbuqp")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 50.0
+texture_under = SubResource("GradientTexture2D_c73ev")
+texture_over = SubResource("GradientTexture2D_cbomc")
+texture_progress = SubResource("GradientTexture2D_7wp6k")
