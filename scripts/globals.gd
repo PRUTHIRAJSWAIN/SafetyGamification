@@ -6,3 +6,7 @@ enum DamageProviderType {
 	MaterialSpill,
 	FallingObject
 }
+
+enum ShieldType{
+	None, Gloves, Helmet, Goggles, Shoes,Headphone
+}

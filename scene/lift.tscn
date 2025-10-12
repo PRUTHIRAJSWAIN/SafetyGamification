@@ -70,28 +70,33 @@ columns = 3
 
 [node name="ground" type="Button" parent="LiftButtons/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 8
 text = "1"
 
 [node name="first_floor" type="Button" parent="LiftButtons/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 8
 text = "2
 "
 
 [node name="second_floor" type="Button" parent="LiftButtons/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 8
 text = "3
 "
 
 [node name="third_floor" type="Button" parent="LiftButtons/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 8
 text = "4"
 
 [node name="Open" type="Button" parent="LiftButtons/GridContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 8
 text = "<>"
 

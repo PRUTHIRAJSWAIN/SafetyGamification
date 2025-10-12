@@ -7,14 +7,14 @@ var damageAmount:float = 0
 
 var targets_in_area:Array = []
 
-func _on_ready() -> void:
+func _ready() -> void:
 	match  DamageGiverType:
 		Globals.DamageProviderType.Sound:
-			damageAmount = 1
-		Globals.DamageProviderType.MaterialSpill:
 			damageAmount = 2
-		Globals.DamageProviderType.FallingObject:
+		Globals.DamageProviderType.MaterialSpill:
 			damageAmount = 3
+		Globals.DamageProviderType.FallingObject:
+			damageAmount = 4
 		_:
 			pass
 

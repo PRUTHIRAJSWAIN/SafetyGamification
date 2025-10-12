@@ -1,33 +1,77 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy5v84ra5slw0"]
+[gd_scene load_steps=10 format=3 uid="uid://cy5v84ra5slw0"]
 
-[sub_resource type="Gradient" id="Gradient_i0yuo"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_c73ev"]
-gradient = SubResource("Gradient_i0yuo")
-
-[sub_resource type="Gradient" id="Gradient_qe48f"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cbomc"]
-gradient = SubResource("Gradient_qe48f")
-
-[sub_resource type="Gradient" id="Gradient_wbuqp"]
-offsets = PackedFloat32Array(0, 0.007662835, 1)
-colors = PackedColorArray(0.93333334, 0, 0, 1, 0.043137256, 0.9098039, 0.043137256, 1, 1, 0, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7wp6k"]
-gradient = SubResource("Gradient_wbuqp")
+[ext_resource type="Script" uid="uid://yhwj464qmxbm" path="res://scripts/ui.gd" id="1_c73ev"]
+[ext_resource type="Texture2D" uid="uid://c54kvyk6mnr6v" path="res://Assets/Gloves.png" id="2_bb7dc"]
+[ext_resource type="Texture2D" uid="uid://bsehv5ed2qhhn" path="res://Assets/Healthbarwhite2.png" id="2_wbuqp"]
+[ext_resource type="Texture2D" uid="uid://dtb0vpnmgll3h" path="res://Assets/HealthbarCarrier2.png" id="3_7wp6k"]
+[ext_resource type="Texture2D" uid="uid://bw217gaih0ima" path="res://Assets/Goggles.png" id="3_lwasl"]
+[ext_resource type="Texture2D" uid="uid://8bx5jkyu3hl5" path="res://Assets/HealthbarGreen2.png" id="4_bb7dc"]
+[ext_resource type="Texture2D" uid="uid://rum4kagjcaj8" path="res://Assets/Helmet.png" id="7_0squ3"]
+[ext_resource type="Texture2D" uid="uid://csbv7nx2glmqy" path="res://Assets/Shoes.png" id="8_lj1a1"]
+[ext_resource type="Texture2D" uid="uid://bylp5885bkpb0" path="res://Assets/Headphone.png" id="9_lj1a1"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_c73ev")
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-value = 50.0
-texture_under = SubResource("GradientTexture2D_c73ev")
-texture_over = SubResource("GradientTexture2D_cbomc")
-texture_progress = SubResource("GradientTexture2D_7wp6k")
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 303.0
+offset_bottom = 58.0
+value = 100.0
+texture_under = ExtResource("2_wbuqp")
+texture_over = ExtResource("3_7wp6k")
+texture_progress = ExtResource("4_bb7dc")
+texture_progress_offset = Vector2(57.005, 14.97)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 61.0
+offset_right = 140.0
+offset_bottom = 189.0
+scale = Vector2(0.5, 0.5)
+
+[node name="pc1" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Headphone" type="TextureRect" parent="HBoxContainer/pc1"]
+layout_mode = 2
+texture = ExtResource("9_lj1a1")
+
+[node name="pc2" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Googles" type="TextureRect" parent="HBoxContainer/pc2"]
+layout_mode = 2
+texture = ExtResource("3_lwasl")
+expand_mode = 3
+
+[node name="pc3" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Gloves" type="TextureRect" parent="HBoxContainer/pc3"]
+layout_mode = 2
+texture = ExtResource("2_bb7dc")
+expand_mode = 3
+
+[node name="pc4" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="helmet" type="TextureRect" parent="HBoxContainer/pc4"]
+layout_mode = 2
+texture = ExtResource("7_0squ3")
+expand_mode = 3
+
+[node name="pc5" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Shoes" type="TextureRect" parent="HBoxContainer/pc5"]
+layout_mode = 2
+texture = ExtResource("8_lj1a1")
+expand_mode = 3

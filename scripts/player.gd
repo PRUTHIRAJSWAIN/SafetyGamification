@@ -1,16 +1,25 @@
 extends CharacterBody2D
 
+signal health_changed(new_health)
+signal item_equipped(items)
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -900.0
+const SPEED = 500.0
+const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-var player_health = 100
+var player_health = 74
 var player_max_health = 100
 
-var have_helmet:bool = false
-var have_goggles:bool = false
-var have_shoes:bool = false
-var have_headphone:bool = false
+var items = {
+	Globals.ShieldType.Gloves:false,
+	Globals.ShieldType.Helmet:false,
+	Globals.ShieldType.Goggles:true,
+	Globals.ShieldType.Shoes:false,
+	Globals.ShieldType.Headphone:false
+}
+
+func _ready() -> void:
+	emit_signal("health_changed", player_health)
+	emit_signal("item_equipped",items)
 
 
 func _physics_process(delta: float) -> void:
@@ -43,16 +52,17 @@ func _physics_process(delta: float) -> void:
 func take_damage(amount:float = 0, giver:Globals.DamageProviderType = Globals.DamageProviderType.None):
 	match giver:
 		Globals.DamageProviderType.Sound:
-			if not have_headphone:
+			if not items[Globals.ShieldType.Headphone]:
 				apply_damage(amount)
 		Globals.DamageProviderType.MaterialSpill:
-			if not have_shoes:
+			if not items[Globals.ShieldType.Shoes]:
 				apply_damage(amount)
 		Globals.DamageProviderType.FallingObject:
-			if not have_helmet:
+			if not items[Globals.ShieldType.Helmet]:
 				apply_damage((amount))
 
 func apply_damage(amount:float = 0):
-	player_health =- amount
+	player_health = max(player_health-amount,0)
+	emit_signal("health_changed", player_health)
 	if player_health <= 0:
 		get_tree().reload_current_scene()
