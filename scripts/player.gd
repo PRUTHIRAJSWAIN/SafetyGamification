@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal health_changed(new_health)
 signal item_equipped(items)
 
-const SPEED = 500.0
+const SPEED = 520.0
 const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var player_health = 74
@@ -12,7 +12,7 @@ var player_max_health = 100
 var items = {
 	Globals.ShieldType.Gloves:false,
 	Globals.ShieldType.Helmet:false,
-	Globals.ShieldType.Goggles:true,
+	Globals.ShieldType.Goggles:false,
 	Globals.ShieldType.Shoes:false,
 	Globals.ShieldType.Headphone:false
 }
@@ -66,3 +66,14 @@ func apply_damage(amount:float = 0):
 	emit_signal("health_changed", player_health)
 	if player_health <= 0:
 		get_tree().reload_current_scene()
+
+func equip_item(item:Globals.ShieldType):
+	items[item] = true
+	emit_signal("item_equipped",items)
+	
+func enable_collision_and_movement(active:bool) ->void :
+	# Block/unblock input and collisions together
+	set_process_input(active)
+	set_physics_process(active)
+	set_collision_layer_value(5, active)
+	set_collision_mask_value(5, active)

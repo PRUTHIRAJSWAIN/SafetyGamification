@@ -1,0 +1,421 @@
+[gd_scene load_steps=21 format=4 uid="uid://dp5wsjhxnc7kn"]
+
+[ext_resource type="Script" uid="uid://sxnf0on5ge3v" path="res://scripts/level_2.gd" id="1_7opmi"]
+[ext_resource type="PackedScene" uid="uid://bfueoyqn1pxvu" path="res://scene/InstructionBox.tscn" id="1_jkuvu"]
+[ext_resource type="TileSet" uid="uid://bs8bc7tln01es" path="res://InGameAssets/BuildingsTileSet.tres" id="2_dfrwq"]
+[ext_resource type="Texture2D" uid="uid://dop57kxtvkrxl" path="res://Assets/items/HazardScanner.png" id="3_a3hhw"]
+[ext_resource type="PackedScene" uid="uid://bmnlsmp3disu7" path="res://scene/player.tscn" id="3_xtqpk"]
+[ext_resource type="Texture2D" uid="uid://bs7c32o57btap" path="res://Assets/2by2_img1.png" id="6_e7nuw"]
+[ext_resource type="PackedScene" uid="uid://dbvq470t2704w" path="res://scene/Lift.tscn" id="7_pgd3y"]
+[ext_resource type="PackedScene" uid="uid://cdp82ichpjwub" path="res://scene/pickables.tscn" id="8_vilue"]
+[ext_resource type="Texture2D" uid="uid://cfxmis15p76k5" path="res://Assets/items/PickableItemImages.png" id="9_lg52c"]
+[ext_resource type="PackedScene" uid="uid://bd1r876nq6mpg" path="res://scene/hazards.tscn" id="10_20pku"]
+[ext_resource type="Texture2D" uid="uid://vr7w4vf7vlw1" path="res://Assets/items/shaddow.png" id="11_8pvpx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg52c"]
+atlas = ExtResource("9_lg52c")
+region = Rect2(1, -1, 62, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20pku"]
+atlas = ExtResource("9_lg52c")
+region = Rect2(126, 0, 129, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pvpx"]
+atlas = ExtResource("9_lg52c")
+region = Rect2(58, 51, 78, 146)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfv2s"]
+atlas = ExtResource("9_lg52c")
+region = Rect2(255, -34, 196, 109)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pgd3y"]
+texture = ExtResource("6_e7nuw")
+texture_region_size = Vector2i(64, 64)
+2:3/size_in_atlas = Vector2i(2, 1)
+2:3/0 = 0
+0:4/size_in_atlas = Vector2i(2, 2)
+0:4/0 = 0
+2:0/size_in_atlas = Vector2i(4, 1)
+2:0/0 = 0
+2:1/size_in_atlas = Vector2i(2, 1)
+2:1/0 = 0
+4:1/size_in_atlas = Vector2i(2, 1)
+4:1/0 = 0
+7:6/size_in_atlas = Vector2i(1, 2)
+7:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vilue"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_pgd3y")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vilue"]
+size = Vector2(128, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20pku"]
+size = Vector2(494, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pvpx"]
+size = Vector2(148, 204)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7opmi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Instructions" parent="CanvasLayer" instance=ExtResource("1_jkuvu")]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -213.0
+offset_bottom = 376.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_scanner" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "    Scanner"
+icon = ExtResource("3_a3hhw")
+expand_icon = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_FireEx" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "   Fire Extinguisher"
+icon = SubResource("AtlasTexture_lg52c")
+alignment = 1
+expand_icon = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_ElectTool" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "  Electric Tool"
+icon = SubResource("AtlasTexture_20pku")
+expand_icon = true
+
+[node name="PanelContainer4" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_Moping" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer4"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "      Moping"
+icon = SubResource("AtlasTexture_8pvpx")
+expand_icon = true
+
+[node name="PanelContainer5" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_Bulb" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer5"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "Electric Bulb"
+icon = SubResource("AtlasTexture_pfv2s")
+expand_icon = true
+
+[node name="PanelContainer6" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_bulbrepair" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer6"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "0/2 Bulb Replaced
+"
+expand_icon = true
+
+[node name="PanelContainer7" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_firerepair" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer7"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "0/2 Fire Extinguisher
+"
+expand_icon = true
+
+[node name="PanelContainer8" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_spillclear" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer8"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "0/2 Spills Cleaned
+"
+expand_icon = true
+
+[node name="PanelContainer9" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_wirebroken" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer9"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "0/2 Broken Wire
+"
+expand_icon = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_xtqpk")]
+position = Vector2(3787, -21)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(31, 43)
+scale = Vector2(1, 0.068)
+zoom = Vector2(1.3, 1.3)
+limit_left = -1351
+limit_top = -1465
+limit_right = 7585
+limit_bottom = 300
+position_smoothing_enabled = true
+
+[node name="Building" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAAAP//AQABAAAAAAABAP//AQABAAAAAAACAP//AQABAAAAAAADAP//AQABAAAAAAAEAP3/AQABAAAAAAAEAPz/AQABAAAAAAADAPz/AQABAAAAAAADAP3/AQABAAAAAAADAP7/AQABAAAAAAACAP3/AQABAAAAAAABAPz/AQABAAAAAAABAP3/AQABAAAAAAABAP7/AQABAAAAAAAAAP7/AQABAAAAAAAAAPz/AQABAAEAAAAFAP//AQAAAAYAAAAFAP7/AQABAAAAAAAAAP3/AQAAAAMAAAAGAP//AQAAAAQAAAAGAP7/AQAAAAQAAAAGAP3/AQAAAAQAAAAGAPz/AQAAAAQAAAD/////AQAAAAQAABD///7/AQAAAAQAABD///3/AQAAAAQAABD///z/AQAAAAQAABAEAP7/AQAAAAAAAAACAP7/AQAAAAEAAAACAPz/AQAAAAIAAAAEAP//AQABAAAAAAAFAP3/AQAAAAcAAAAFAPz/AQAAAAAAAAA=")
+tile_set = ExtResource("2_dfrwq")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -20)
+tile_map_data = PackedByteArray("AABCAP//AQACAAMAAABeAP//AQACAAMAAABeAPv/AQACAAMAAAAJAPv/AQACAAAAAAAJAPr/AQACAAAAAAAMAPv/AQAEAAEAAAAMAPr/AQACAAEAAAAOAPv/AQACAAEAAAAOAPr/AQAEAAEAAAANAPn/AQACAAAAAAAAAP3/AQAHAAYAAAAhAP3/AQAHAAYAAABWAP3/AQAHAAYAAABWAPn/AQAHAAYAAABWAPX/AQAHAAYAAABWAPH/AQAHAAYAAAA0APH/AQAHAAYAAAAbAPH/AQAHAAYAAAAJAPH/AQAHAAYAAAA0APb/AQAHAAYAAAA0APn/AQAHAAYAAAADAPb/AQAHAAYAAAADAPr/AQAHAAYAAAA=")
+tile_set = SubResource("TileSet_vilue")
+
+[node name="Lift" type="Node" parent="."]
+
+[node name="Node2D" parent="Lift" instance=ExtResource("7_pgd3y")]
+position = Vector2(4086, -115)
+
+[node name="Node2D2" parent="Lift" instance=ExtResource("7_pgd3y")]
+position = Vector2(4086, -372)
+my_floor_id = 1
+
+[node name="Node2D3" parent="Lift" instance=ExtResource("7_pgd3y")]
+position = Vector2(4086, -628)
+my_floor_id = 2
+
+[node name="Node2D4" parent="Lift" instance=ExtResource("7_pgd3y")]
+position = Vector2(4086, -885)
+my_floor_id = 3
+
+[node name="HazardScanner" parent="." instance=ExtResource("8_vilue")]
+position = Vector2(4261, -96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardScanner"]
+position = Vector2(-5, 33)
+shape = SubResource("RectangleShape2D_vilue")
+
+[node name="Sprite2D" type="Sprite2D" parent="HazardScanner"]
+position = Vector2(-9.000053, 3.000002)
+scale = Vector2(0.47656417, 0.39843744)
+texture = ExtResource("3_a3hhw")
+
+[node name="ElectricTool" parent="." instance=ExtResource("8_vilue")]
+position = Vector2(6067, -106)
+mytype = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElectricTool"]
+position = Vector2(-5, 13)
+shape = SubResource("RectangleShape2D_vilue")
+
+[node name="Sprite2D" type="Sprite2D" parent="ElectricTool"]
+position = Vector2(-9.000053, 3.000002)
+scale = Vector2(0.47656417, 0.39843744)
+texture = ExtResource("9_lg52c")
+region_enabled = true
+region_rect = Rect2(127, 0, 123, 94)
+
+[node name="ElectricBulb" parent="." instance=ExtResource("8_vilue")]
+position = Vector2(6067, -353)
+mytype = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElectricBulb"]
+position = Vector2(-5, 13)
+shape = SubResource("RectangleShape2D_vilue")
+
+[node name="Sprite2D" type="Sprite2D" parent="ElectricBulb"]
+position = Vector2(-9.000053, 3.000002)
+scale = Vector2(0.47656417, 0.39843744)
+texture = ExtResource("9_lg52c")
+region_enabled = true
+region_rect = Rect2(255, 21, 193, 44)
+
+[node name="FireExtinguisher" parent="." instance=ExtResource("8_vilue")]
+position = Vector2(6067, -617)
+mytype = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireExtinguisher"]
+position = Vector2(-5, 13)
+shape = SubResource("RectangleShape2D_vilue")
+
+[node name="Sprite2D" type="Sprite2D" parent="FireExtinguisher"]
+position = Vector2(-3.0000534, 57.25585)
+scale = Vector2(0.47656417, 0.5001038)
+texture = ExtResource("9_lg52c")
+region_enabled = true
+region_rect = Rect2(0, 0, 58, 113)
+
+[node name="MopTool" parent="." instance=ExtResource("8_vilue")]
+position = Vector2(5256, -873)
+mytype = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MopTool"]
+position = Vector2(-5, 13)
+shape = SubResource("RectangleShape2D_vilue")
+
+[node name="Sprite2D" type="Sprite2D" parent="MopTool"]
+position = Vector2(-9.000053, 47)
+scale = Vector2(0.47656417, 0.39843744)
+texture = ExtResource("9_lg52c")
+region_enabled = true
+region_rect = Rect2(62, 0, 60, 192)
+
+[node name="DarkArea" parent="." instance=ExtResource("10_20pku")]
+position = Vector2(2837, -111)
+who_can_fix_me = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkArea"]
+position = Vector2(34, -18)
+shape = SubResource("RectangleShape2D_20pku")
+
+[node name="Sprite2D" type="Sprite2D" parent="DarkArea"]
+position = Vector2(31.500046, -14.999998)
+scale = Vector2(3.5533593, 3.34375)
+texture = ExtResource("11_8pvpx")
+
+[node name="DarkArea2" parent="." instance=ExtResource("10_20pku")]
+position = Vector2(1819, -624)
+who_can_fix_me = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkArea2"]
+position = Vector2(34, -18)
+shape = SubResource("RectangleShape2D_20pku")
+
+[node name="Sprite2D" type="Sprite2D" parent="DarkArea2"]
+position = Vector2(31.500046, -14.999998)
+scale = Vector2(3.5533593, 3.34375)
+texture = ExtResource("11_8pvpx")
+
+[node name="BrokenWire" parent="." instance=ExtResource("10_20pku")]
+position = Vector2(4868, -366)
+who_can_fix_me = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenWire"]
+position = Vector2(0.5, -18)
+shape = SubResource("RectangleShape2D_20pku")
+
+[node name="Sprite2D" type="Sprite2D" parent="BrokenWire"]
+position = Vector2(-4.9999504, 49)
+scale = Vector2(0.853, 0.803)
+texture = ExtResource("9_lg52c")
+region_enabled = true
+region_rect = Rect2(256, 77, 72, 51)
+
+[node name="BrokenWire2" parent="." instance=ExtResource("10_20pku")]
+position = Vector2(5892, -874)
+who_can_fix_me = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenWire2"]
+position = Vector2(0.5, -18)
+shape = SubResource("RectangleShape2D_20pku")
+
+[node name="Sprite2D" type="Sprite2D" parent="BrokenWire2"]
+position = Vector2(9, 46.000015)
+scale = Vector2(0.593, 0.8253732)
+texture = ExtResource("9_lg52c")
+region_enabled = true
+region_rect = Rect2(256, 77, 72, 51)
+
+[node name="FireHazardLoc" parent="." instance=ExtResource("10_20pku")]
+position = Vector2(228, -422)
+who_can_fix_me = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireHazardLoc"]
+position = Vector2(0.5, 41.5)
+shape = SubResource("RectangleShape2D_20pku")
+
+[node name="Sprite2D" type="Sprite2D" parent="FireHazardLoc"]
+position = Vector2(-3.9999988, 52.000015)
+scale = Vector2(0.593, 0.95)
+texture = ExtResource("9_lg52c")
+region_enabled = true
+region_rect = Rect2(427, 384, 84, 128)
+
+[node name="FireHazardLoc2" parent="." instance=ExtResource("10_20pku")]
+position = Vector2(3359, -681)
+who_can_fix_me = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireHazardLoc2"]
+position = Vector2(0.5, 41.5)
+shape = SubResource("RectangleShape2D_20pku")
+
+[node name="Sprite2D" type="Sprite2D" parent="FireHazardLoc2"]
+position = Vector2(3, 55.000015)
+scale = Vector2(0.703, 0.95)
+texture = ExtResource("9_lg52c")
+region_enabled = true
+region_rect = Rect2(427, 384, 84, 128)
+
+[node name="Spill" parent="." instance=ExtResource("10_20pku")]
+position = Vector2(1361, -874)
+who_can_fix_me = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spill"]
+position = Vector2(-35, -18)
+shape = SubResource("RectangleShape2D_20pku")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spill"]
+position = Vector2(1.0000381, 82.000015)
+scale = Vector2(2.5476198, 1.2499996)
+texture = ExtResource("6_e7nuw")
+region_enabled = true
+region_rect = Rect2(254, 387, 198, 16)
+
+[node name="Spill2" parent="." instance=ExtResource("10_20pku")]
+position = Vector2(1225, -360)
+who_can_fix_me = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spill2"]
+position = Vector2(-35, -18)
+shape = SubResource("RectangleShape2D_20pku")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spill2"]
+position = Vector2(1.0000381, 82.000015)
+scale = Vector2(2.5476198, 1.2499996)
+texture = ExtResource("6_e7nuw")
+region_enabled = true
+region_rect = Rect2(254, 410, 198, 10)
+
+[node name="ExitPoint" type="Area2D" parent="."]
+position = Vector2(769, -885)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitPoint"]
+position = Vector2(2, -7)
+shape = SubResource("RectangleShape2D_8pvpx")
+
+[node name="Label" type="Label" parent="ExitPoint"]
+visible = false
+offset_left = -71.0
+offset_top = -40.0
+offset_right = -31.0
+offset_bottom = -17.0
+text = "All objectives not completed"
+
+[connection signal="body_entered" from="ExitPoint" to="." method="_on_exit_point_body_entered"]
+[connection signal="body_exited" from="ExitPoint" to="." method="_on_exit_point_body_exited"]

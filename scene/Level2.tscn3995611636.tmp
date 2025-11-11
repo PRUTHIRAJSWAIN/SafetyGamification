@@ -1,0 +1,153 @@
+[gd_scene load_steps=15 format=4 uid="uid://dp5wsjhxnc7kn"]
+
+[ext_resource type="Script" uid="uid://sxnf0on5ge3v" path="res://scripts/level_2.gd" id="1_7opmi"]
+[ext_resource type="PackedScene" uid="uid://bfueoyqn1pxvu" path="res://scene/InstructionBox.tscn" id="1_jkuvu"]
+[ext_resource type="TileSet" uid="uid://bs8bc7tln01es" path="res://InGameAssets/BuildingsTileSet.tres" id="2_dfrwq"]
+[ext_resource type="Texture2D" uid="uid://dop57kxtvkrxl" path="res://Assets/items/HazardScanner.png" id="3_a3hhw"]
+[ext_resource type="PackedScene" uid="uid://bmnlsmp3disu7" path="res://scene/player.tscn" id="3_xtqpk"]
+[ext_resource type="Texture2D" uid="uid://bs7c32o57btap" path="res://Assets/2by2_img1.png" id="6_e7nuw"]
+[ext_resource type="PackedScene" uid="uid://dbvq470t2704w" path="res://scene/Lift.tscn" id="7_pgd3y"]
+[ext_resource type="Script" uid="uid://dqwwsvyl0guht" path="res://scripts/hazard_scanner.gd" id="8_vilue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7opmi"]
+size = Vector2(515, 179)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pgd3y"]
+texture = ExtResource("6_e7nuw")
+texture_region_size = Vector2i(64, 64)
+2:3/size_in_atlas = Vector2i(2, 1)
+2:3/0 = 0
+0:4/size_in_atlas = Vector2i(2, 2)
+0:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vilue"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_pgd3y")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgd3y"]
+size = Vector2(127, 122)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg52c"]
+bg_color = Color(0, 0, 0, 0.5137255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_20pku"]
+Label/font_sizes/font_size = 14
+Label/styles/normal = SubResource("StyleBoxFlat_lg52c")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7opmi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Instructions" parent="CanvasLayer" instance=ExtResource("1_jkuvu")]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -159.0
+offset_bottom = 376.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_scanner" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+focus_mode = 0
+button_mask = 0
+text = "Scanner"
+icon = ExtResource("3_a3hhw")
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cb_scanner" type="CheckBox" parent="CanvasLayer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+focus_mode = 0
+toggle_mode = false
+button_mask = 0
+text = "Scanner"
+icon = ExtResource("3_a3hhw")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_xtqpk")]
+position = Vector2(3787, -21)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(31, 43)
+scale = Vector2(1, 0.068)
+zoom = Vector2(1.3, 1.3)
+limit_left = -1351
+limit_top = -1465
+limit_right = 5710
+limit_bottom = 300
+position_smoothing_enabled = true
+
+[node name="Scanner" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Scanner"]
+position = Vector2(-18.5, -91.5)
+shape = SubResource("RectangleShape2D_7opmi")
+
+[node name="Building" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAAAP//AQABAAAAAAABAP//AQABAAAAAAACAP//AQABAAAAAAADAP//AQABAAAAAAAEAP//AQABAAAAAAAEAP7/AQABAAAAAAAEAP3/AQABAAAAAAAEAPz/AQABAAAAAAADAPz/AQABAAAAAAADAP3/AQABAAAAAAADAP7/AQABAAAAAAACAP7/AQABAAAAAAACAP3/AQABAAAAAAACAPz/AQABAAAAAAABAPz/AQABAAAAAAABAP3/AQABAAAAAAABAP7/AQABAAAAAAAAAP7/AQABAAAAAAAAAP3/AQABAAAAAAAAAPz/AQABAAAAAAAFAP//AQABAAAAAAAFAP7/AQABAAAAAAAFAP3/AQABAAAAAAAFAPz/AQABAAAAAAA=")
+tile_set = ExtResource("2_dfrwq")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -20)
+tile_map_data = PackedByteArray("AABCAP//AQACAAMAAAA=")
+tile_set = SubResource("TileSet_vilue")
+
+[node name="Lift" type="Node" parent="."]
+
+[node name="Node2D" parent="Lift" instance=ExtResource("7_pgd3y")]
+position = Vector2(4086, -115)
+
+[node name="Node2D2" parent="Lift" instance=ExtResource("7_pgd3y")]
+position = Vector2(4086, -372)
+my_floor_id = 1
+
+[node name="Node2D3" parent="Lift" instance=ExtResource("7_pgd3y")]
+position = Vector2(4086, -628)
+my_floor_id = 2
+
+[node name="Node2D4" parent="Lift" instance=ExtResource("7_pgd3y")]
+position = Vector2(4086, -885)
+my_floor_id = 3
+
+[node name="HazardScanner" type="Area2D" parent="."]
+position = Vector2(4261, -96)
+collision_mask = 16
+script = ExtResource("8_vilue")
+
+[node name="Sprite2D" type="Sprite2D" parent="HazardScanner"]
+position = Vector2(-1, -1)
+scale = Vector2(0.5625, 0.5)
+texture = ExtResource("3_a3hhw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardScanner"]
+position = Vector2(-5.5, 15)
+shape = SubResource("RectangleShape2D_pgd3y")
+
+[node name="Label" type="Label" parent="HazardScanner"]
+visible = false
+offset_left = -105.0
+offset_top = -74.0
+offset_right = 106.0
+offset_bottom = -47.0
+theme = SubResource("Theme_20pku")
+text = "Press E to pick Hazard Scanner"
+
+[connection signal="body_entered" from="HazardScanner" to="HazardScanner" method="_on_body_entered"]
+[connection signal="body_exited" from="HazardScanner" to="HazardScanner" method="_on_body_exited"]

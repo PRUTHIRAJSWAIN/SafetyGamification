@@ -16,3 +16,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
+
+func _on_accept_dialog_confirmed() -> void:
+	get_tree().paused = false

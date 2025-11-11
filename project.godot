@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SafetyGamification"
-run/main_scene="uid://dxnbudmriucxc"
+run/main_scene="uid://uh6g8bvk5yrd"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

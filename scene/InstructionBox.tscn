@@ -1,0 +1,144 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfueoyqn1pxvu"]
+
+[ext_resource type="Script" uid="uid://dtmjur2gtpkby" path="res://scene/instruction_box.gd" id="1_3ywo5"]
+
+[sub_resource type="Theme" id="Theme_f0ovf"]
+
+[sub_resource type="Gradient" id="Gradient_o75r6"]
+colors = PackedColorArray(0.63044035, 0.598891, 0.8930285, 1, 0.29873824, 0.5072637, 0.7802738, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_45eqh"]
+gradient = SubResource("Gradient_o75r6")
+fill = 1
+fill_from = Vector2(0.52136755, 0.53418803)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqsc3"]
+texture = SubResource("GradientTexture2D_45eqh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ywo5"]
+bg_color = Color(0.8903111, 0.5407581, 7.70092e-07, 1)
+border_width_bottom = 5
+border_color = Color(0.8110825, 0.492639, 0, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o75r6"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.7127657, 0.44488445, 1)
+border_width_bottom = 7
+border_color = Color(0, 0.48374325, 0.29410782, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45eqh"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1.5883148e-06, 0.667162, 0.41296405, 1)
+border_width_bottom = 4
+border_color = Color(1.4920532e-06, 0.44807178, 0.27184537, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqsc3"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.82977587, 0.5183384, 1)
+border_width_bottom = 7
+border_color = Color(0, 0.48374325, 0.29410782, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[node name="Panel" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.5
+offset_top = -152.14001
+offset_right = 259.5
+offset_bottom = 152.14001
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme = SubResource("Theme_f0ovf")
+theme_override_styles/panel = SubResource("StyleBoxTexture_fqsc3")
+script = ExtResource("1_3ywo5")
+
+[node name="PanelContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ywo5")
+text = "LEVEL-2"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.87058824, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Safety isn’t just about what you wear — it’s about what you repair!"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+bbcode_enabled = true
+text = "
+	[b][color=#F26A1B]🎯 Mission Objective:[/color][/b]
+	You’ve entered a busy section of the factory where several [b]hidden hazards[/b] are putting workers at
+	risk!  
+	Your goal is to:
+		🔍 [b]Scan the area[/b] using your Safety Scanner to find unsafe conditions.  
+		🧰 [b]Collect the required tools[/b] scattered around the floor.  
+		🔧 [b]Fix each hazard[/b] before the time runs out.  
+		🏗️ Use the [b]lift[/b] to navigate between floors and cover all areas.  
+		🚪 Exit the level once all hazards are secured.
+	[center][color=#F2A81D]✅ Complete all fixes to secure the floor and unlock the next level![/color][/center]
+	[center][i]\"Stay alert, stay safe, and make the factory hazard-free!\"[/i][/center]
+
+"
+fit_content = true
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_o75r6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_45eqh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fqsc3")
+text = "OK"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbdfoks8m3g20"
-path="res://.godot/imported/HealthbarCarrier.png-8e20974da2ac76d240bfa7bc2956a4f9.ctex"
+uid="uid://vr7w4vf7vlw1"
+path="res://.godot/imported/shaddow.png-c09df8afd532cdfe7370dd9c3fe8d7f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HealthbarCarrier.png"
-dest_files=["res://.godot/imported/HealthbarCarrier.png-8e20974da2ac76d240bfa7bc2956a4f9.ctex"]
+source_file="res://Assets/items/shaddow.png"
+dest_files=["res://.godot/imported/shaddow.png-c09df8afd532cdfe7370dd9c3fe8d7f5.ctex"]
 
 [params]
 

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd1r876nq6mpg"]
+
+[ext_resource type="Script" uid="uid://cnf02uqe8ubc8" path="res://obstacles.gd" id="1_vqwjj"]
+[ext_resource type="Theme" uid="uid://cb3lgamw3saxt" path="res://InGameAssets/LabelInfo.tres" id="2_l5utb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqwjj"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5utb"]
+bg_color = Color(0.7852169, 0, 0.21799195, 1)
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 16
+script = ExtResource("1_vqwjj")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 2
+offset_left = -52.0
+offset_top = 1.0
+offset_right = 53.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_vqwjj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l5utb")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 2
+offset_left = -137.0
+offset_top = -33.0
+offset_right = 137.0
+offset_bottom = -10.0
+theme = ExtResource("2_l5utb")
+text = "You need an asset for this"
+horizontal_alignment = 1
+
+[node name="FixTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

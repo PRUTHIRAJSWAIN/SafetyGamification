@@ -1,20 +1,18 @@
 [gd_scene load_steps=10 format=3 uid="uid://cy5v84ra5slw0"]
 
 [ext_resource type="Script" uid="uid://yhwj464qmxbm" path="res://scripts/ui.gd" id="1_c73ev"]
-[ext_resource type="Texture2D" uid="uid://c54kvyk6mnr6v" path="res://Assets/Gloves.png" id="2_bb7dc"]
+[ext_resource type="Texture2D" uid="uid://c54kvyk6mnr6v" path="res://Assets/items/Gloves.png" id="2_bb7dc"]
 [ext_resource type="Texture2D" uid="uid://bsehv5ed2qhhn" path="res://Assets/Healthbarwhite2.png" id="2_wbuqp"]
 [ext_resource type="Texture2D" uid="uid://dtb0vpnmgll3h" path="res://Assets/HealthbarCarrier2.png" id="3_7wp6k"]
-[ext_resource type="Texture2D" uid="uid://bw217gaih0ima" path="res://Assets/Goggles.png" id="3_lwasl"]
+[ext_resource type="Texture2D" uid="uid://bw217gaih0ima" path="res://Assets/items/Goggles.png" id="3_lwasl"]
 [ext_resource type="Texture2D" uid="uid://8bx5jkyu3hl5" path="res://Assets/HealthbarGreen2.png" id="4_bb7dc"]
-[ext_resource type="Texture2D" uid="uid://rum4kagjcaj8" path="res://Assets/Helmet.png" id="7_0squ3"]
-[ext_resource type="Texture2D" uid="uid://csbv7nx2glmqy" path="res://Assets/Shoes.png" id="8_lj1a1"]
-[ext_resource type="Texture2D" uid="uid://bylp5885bkpb0" path="res://Assets/Headphone.png" id="9_lj1a1"]
+[ext_resource type="Texture2D" uid="uid://rum4kagjcaj8" path="res://Assets/items/Helmet.png" id="7_0squ3"]
+[ext_resource type="Texture2D" uid="uid://csbv7nx2glmqy" path="res://Assets/items/Shoes.png" id="8_lj1a1"]
+[ext_resource type="Texture2D" uid="uid://bylp5885bkpb0" path="res://Assets/items/Headphone.png" id="9_lj1a1"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 script = ExtResource("1_c73ev")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]

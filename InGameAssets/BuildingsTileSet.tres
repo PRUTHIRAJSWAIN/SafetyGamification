@@ -1,0 +1,44 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bs8bc7tln01es"]
+
+[ext_resource type="Texture2D" uid="uid://x0q1jvfryxvo" path="res://Assets/tilesets/Building.png" id="1_6irxg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
+texture = ExtResource("1_6irxg")
+texture_region_size = Vector2i(512, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 55.5, 256, 54.5, 256, 64, -256, 64)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 55.5, 256, 54.5, 256, 64, -256, 64)
+0:1/0/physics_layer_0/polygon_0/one_way = true
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 55.5, 256, 54.5, 256, 64, -256, 64)
+0:2/0/physics_layer_0/polygon_0/one_way = true
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 53.64834, 256, 54.114845, 256, 64, -256, 64)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 53.64834, 256, 54.114845, 256, 64, -256, 64)
+0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 53.64834, 256, 54.114845, 256, 64, -256, 64)
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 53.64834, 256, 54.114845, 256, 64, -256, 64)
+0:7/0/physics_layer_0/polygon_0/one_way = true
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -64, 256, -64, 256, 64, -256, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 55.5, 256, 54.5, 256, 64, -256, 64)
+1:0/0/physics_layer_0/polygon_0/one_way = true
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 55.5, 256, 54.5, 256, 64, -256, 64)
+1:1/0/physics_layer_0/polygon_0/one_way = true
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 53.64834, 256, 54.114845, 256, 64, -256, 64)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 53.64834, 256, 54.114845, 256, 64, -256, 64)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, 53.64834, 256, 54.114845, 256, 64, -256, 64)
+
+[resource]
+tile_size = Vector2i(512, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_0e48y")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw217gaih0ima"
-path="res://.godot/imported/Goggles.png-e4c6b7722a98d8886b994da49237d15d.ctex"
+uid="uid://cfxmis15p76k5"
+path="res://.godot/imported/PickableItemImages.png-7ce00464ac272ec95b35c2bd99d20a25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Goggles.png"
-dest_files=["res://.godot/imported/Goggles.png-e4c6b7722a98d8886b994da49237d15d.ctex"]
+source_file="res://Assets/items/PickableItemImages.png"
+dest_files=["res://.godot/imported/PickableItemImages.png-7ce00464ac272ec95b35c2bd99d20a25.ctex"]
 
 [params]
 

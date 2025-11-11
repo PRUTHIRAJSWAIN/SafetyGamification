@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bylp5885bkpb0"
-path="res://.godot/imported/Headphone.png-ba368986a0fcf9868449d19682a9df07.ctex"
+uid="uid://rum4kagjcaj8"
+path="res://.godot/imported/Helmet.png-c3c18e85b863c0f978e98724cb150b25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Headphone.png"
-dest_files=["res://.godot/imported/Headphone.png-ba368986a0fcf9868449d19682a9df07.ctex"]
+source_file="res://Assets/items/Helmet.png"
+dest_files=["res://.godot/imported/Helmet.png-c3c18e85b863c0f978e98724cb150b25.ctex"]
 
 [params]
 

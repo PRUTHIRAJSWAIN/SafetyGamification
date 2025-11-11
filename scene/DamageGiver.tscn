@@ -1,6 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4pqa4soljhb7"]
+[gd_scene load_steps=11 format=3 uid="uid://b4pqa4soljhb7"]
 
 [ext_resource type="Script" uid="uid://dj1m8nhk3n1fa" path="res://scripts/damage_giver.gd" id="1_2mgi5"]
+[ext_resource type="Texture2D" uid="uid://bs7c32o57btap" path="res://Assets/2by2_img1.png" id="2_0rg24"]
+[ext_resource type="Texture2D" uid="uid://bo3lwdo2ubek2" path="res://Assets/sprites/welding.png" id="3_0y15g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_552jd"]
+atlas = ExtResource("3_0y15g")
+region = Rect2(0, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2qfn"]
+atlas = ExtResource("3_0y15g")
+region = Rect2(128, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exo1p"]
+atlas = ExtResource("3_0y15g")
+region = Rect2(256, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6ndp"]
+atlas = ExtResource("3_0y15g")
+region = Rect2(384, 0, 128, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx0ge"]
+atlas = ExtResource("3_0y15g")
+region = Rect2(0, 192, 128, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ly6g3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_552jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2qfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exo1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6ndp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx0ge")
+}],
+"loop": true,
+"name": &"welding",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mgi5"]
+size = Vector2(256, 243)
 
 [node name="Area2D" type="Area2D"]
 collision_mask = 16
@@ -9,6 +57,28 @@ script = ExtResource("1_2mgi5")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="VfxContainer" type="Node2D" parent="."]
+z_index = 6
+
+[node name="Spill" type="Sprite2D" parent="VfxContainer"]
+position = Vector2(0, -3.42)
+scale = Vector2(1.33, 1)
+texture = ExtResource("2_0rg24")
+region_enabled = true
+region_rect = Rect2(253, 386, 199, 22)
+
+[node name="Welding" type="AnimatedSprite2D" parent="VfxContainer"]
+position = Vector2(2, -114)
+scale = Vector2(1.175, 1.175)
+sprite_frames = SubResource("SpriteFrames_ly6g3")
+animation = &"welding"
+autoplay = "welding"
+frame_progress = 0.1374218
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -121.5)
+shape = SubResource("RectangleShape2D_2mgi5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

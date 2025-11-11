@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rum4kagjcaj8"
-path="res://.godot/imported/Helmet.png-68bf7ea06b5071b7d3a427ae98cab16f.ctex"
+uid="uid://brixcohcv72t1"
+path="res://.godot/imported/stair.png-7360c9f02480fa192cc6f168b3d03255.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Helmet.png"
-dest_files=["res://.godot/imported/Helmet.png-68bf7ea06b5071b7d3a427ae98cab16f.ctex"]
+source_file="res://Assets/stair.png"
+dest_files=["res://.godot/imported/stair.png-7360c9f02480fa192cc6f168b3d03255.ctex"]
 
 [params]
 
